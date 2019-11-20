@@ -1,18 +1,18 @@
 import {connect} from 'react-redux';
-import AddDocumentComponent from './addDocumentComponent';
+import AddDocumentComponentRF from '../redux-form/addDocumentComponentRF';
 import React, {Component} from "react";
-import Actions from '../actions/AddDocumentActions';
+import Actions from '../../actions/AddDocumentActions';
 
-class AddDocumentContainer extends Component {
+class AddDocumentContainerRF extends Component {
     render() {
         return (
-            <AddDocumentComponent
+            <AddDocumentComponentRF
                 document={this.props.document}
                 file={this.props.file}
                 changeFieldDocument={this.props.changeFieldDocument}
                 changeFileDocument={this.props.changeFileDocument}
                 postDocument={this.props.postDocument}
-                />
+            />
         );
     }
 }
@@ -32,5 +32,5 @@ const mapDispatchToProps = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddDocumentContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddDocumentContainerRF);
 

@@ -1,32 +1,181 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
+}
+label.label {
+    display: inline-block;
+    width: 150px;
+}
+label.custom-file-label {
+    width: 102%;
+}
+input.form-check-input.col-md-2.col-form-label.col-md-10 {
+width: auto;
+margin-left: 150px;}
+
+.spanError{
+    font-size: 14px;
+    color:   red;
+    margin-left: 150px;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
+/* Beginning : CSS Alert react confirm delete*/
+.react-confirm-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+    opacity: 0;
+    -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+    animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+}
+.react-confirm-alert-body {
+    width: 400px;
+    padding: 30px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
+}
+.react-confirm-alert-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.react-confirm-alert-button-group {
+      margin-top: 20px;
+}
+.react-confirm-alert-button-group > button {
+    background: #333;
+    border: none;
+    padding: 6px 18px;
+    color: #eee;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+@keyframes react-confirm-alert-fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* End : CSS Alert react confirm delete*/
+.popup-content{
+    width: 490px !important;
+}
+
+
+
+/*css details Popin */
+.smart-popin {
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    overflow: auto; /* scrollbar will appear if the viewport is too tight to display all the popin content */
+    opacity: 1;
+    visibility: visible;
+
+    /* design */
+
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.smart-popin .sp-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.smart-popin .sp-cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px; /* this space is important to let the box-shadow exceed around the popin - so it has to be at least equal to the shadow radius */
+}
+.smart-popin .sp-body {
+    position: relative; /* to allow absolute positionning inside */
+    z-index: 1; /* to ensure the popin body will be over the .sp-back layer */
+    width: auto; /* by default the width of the wider element inside */
+    min-width: 300px;  /* standard width for xs smartphones (320px) minus 2*10px (.sp-cell margins) */
+    margin: 0 auto;
+
+    /* design */
+
+    background-color: #ffffff;
+    padding: 2em;
+    -webkit-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.25);
+    width: 66.66%; /* 66.66 looks good :-) */;
+}
+.smart-popin .sp-body * {
+    max-width: 100%; /* this is a security to prevents wide elements such as img to stretch the popin beyond the viewport width */
+}
+.smart-popin .sp-back { /* only used to get clicks out of the popin body */
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    display: block;
+}
+.smart-popin .sp-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 36px;
+    height: 36px;
+
+    text-align: center;
+    line-height: 36px;
+    font-size: 1.6em;
+    color: #000000;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+
+/*html {
+    background: #f2f2f2;
+}*/

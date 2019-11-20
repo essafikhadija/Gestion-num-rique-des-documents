@@ -18,9 +18,9 @@ describe('documents actions', () => {
             );
         const expectedActions = [
             {type: Types.POST_DOCUMENT},
-            {type: Types.POST_DOCUMENT_SUCCESS, documents: document}
+            {type: Types.POST_DOCUMENT_SUCCESS, document: document}
         ];
-        const store = mockStore({documents: []})
+        const store = mockStore({document: []})
 
         store.dispatch(Actions.postDocument()).then(() => {
             expect(store.getActions()).toEqual(expectedActions);

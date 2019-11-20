@@ -9,7 +9,7 @@ export default function connctDB() {
         process.exit(-1);
     });
     mongoose.connection.on('connected', () => {
-        LOGGER.error('db connection is now open');
+        LOGGER.info('db connection is now open');
 
     });
     mongoose.set('useFindAndModify', false);

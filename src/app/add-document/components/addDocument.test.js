@@ -1,6 +1,6 @@
 import React from 'react';
-import AddDocumentContainer from './addDocumentContainer';
-import AddDocumentComponent from './addDocumentComponent';
+import AddDocumentContainerRF from './redux-form/addDocumentContainerRF';
+import AddDocumentComponentRF from './redux-form/addDocumentComponentRF';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {document} from '../../constants/mocks';
@@ -14,17 +14,17 @@ function setup() {
         changeFileDocument: jest.fn(),
         document
     };
-    const enzymeWrapper = shallow(<AddDocumentComponent {...props} />);
+    const enzymeWrapper = shallow(<AddDocumentComponentRF {...props} />);
     return {
         props,
         enzymeWrapper
     };
 }
 
-describe('AddDocumentComponent', () => {
+describe('AddDocumentComponentRF', () => {
 
     it('AddDocumentContainer should render without crashing', () => {
-        const component = shallow(<AddDocumentContainer/>);
+        const component = shallow(<AddDocumentContainerRF/>);
         expect(component.exists()).toEqual(true);
     });
 
@@ -61,6 +61,7 @@ describe('AddDocumentComponent', () => {
             'change',
             {target: {value: 'facture'}}
         );
+
         expect(props.changeFieldDocument.mock.calls[0][0]).toEqual('name');
         expect(props.changeFieldDocument.mock.calls[0][1]).toEqual('facture');
     });

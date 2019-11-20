@@ -25,7 +25,7 @@ export class DocumentController extends ParentController{
         let document;
         document = req.body.document ? JSON.parse(req.body.document) : null;
         if(req.files && req.files.length){
-            document.urlFile = req.files.map(x=> x.path);
+            document.urlFile = req.files.map(x=> x.path)[0];
         }
         this.service
             .create(document)
@@ -34,8 +34,13 @@ export class DocumentController extends ParentController{
     }
 
     update(req, res) {
+        let document;
+        document = req.body.document ? JSON.parse(req.body.document) : null;
+        if(req.files && req.files.length){
+            document.urlFile = req.files.map(x=> x.path)[0];
+        }
         this.service
-            .update(req.params.id, req.body)
+            .update(req.params.id, document)
             .then(this.respondWithResult(res))
             .catch(this.handleError(res));
     }

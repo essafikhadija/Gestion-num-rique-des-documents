@@ -7,7 +7,8 @@ import CategoriesContainer from "./categories/components/CategoriesContainer";
 import DetailContainer from "./detail/components/DetailContainer";
 import YearsContainer from "./years/components/YearsContainer";
 import HeaderComponent from "./headers/components/HeaderComponent";
-import AddDocumentContainer from "./add-document/components/addDocumentContainer";
+import AddDocumentContainerRF from "./add-document/components/redux-form/addDocumentContainerRF";
+import UpdateDocumentContainer from "./update-document/components/updateDocumentContainer"
 import {history} from "../store/store";
 import {ConnectedRouter} from 'connected-react-router'
 
@@ -26,8 +27,9 @@ class App extends Component {
                                     <Route path='/search' component={SearchContainer}/>
                                     <Route path='/categories' component={CategoriesContainer}/>
                                     <Route path='/years' component={YearsContainer}/>
-                                    <Route path='/add-document' component={AddDocumentContainer}/>
-                                    <Route path='/detail' component={DetailContainer}/>
+                                    <Route path='/add-document' component={AddDocumentContainerRF}/>
+                                    <Route path='/detail/:id' component={DetailContainer}/>
+                                    <Route path='/update-document/:id' component={UpdateDocumentContainer}/>
                                 </Switch>
                             </div>
                         </div>

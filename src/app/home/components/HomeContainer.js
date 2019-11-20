@@ -8,7 +8,8 @@ class HomeContainer extends Component {
         return (
             <HomeComponent
                 documents={this.props.documents}
-                isLoading={this.props.isLoading}/>
+                isLoading={this.props.isLoading}
+                deleteDocument={this.props.deleteOneDocument}/>
         );
     }
 
@@ -26,8 +27,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    requestDocumentsData: Actions.requestDocumentsData
+    requestDocumentsData: Actions.requestDocumentsData,
+    deleteOneDocument: Actions.deleteDocument
 };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+

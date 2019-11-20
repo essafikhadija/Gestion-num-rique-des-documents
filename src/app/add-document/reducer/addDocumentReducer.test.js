@@ -9,7 +9,8 @@ const INITIAL_STATE = {
         description: '',
         file: '',
         expiredDocument: false,
-        expiredDate: null
+        expiredDate: null,
+        urlFile: ''
     },
     file: null
 };
@@ -21,7 +22,8 @@ const STATE_CHANGE_FIELD_DOCUMENT = {
         description: '',
         file: '',
         expiredDocument: false,
-        expiredDate: null
+        expiredDate: null,
+        urlFile: ''
     },
     file: null
 };
@@ -33,7 +35,8 @@ const STATE_CHANGE_FILE_DOCUMENT = {
         description: '',
         file: '',
         expiredDocument: false,
-        expiredDate: null
+        expiredDate: null,
+        urlFile: ''
     },
     file: 'file'
 };
@@ -45,7 +48,8 @@ const STATE_POST_DOCUMENT_FAILURE = {
         description: '',
         file: '',
         expiredDocument: false,
-        expiredDate: null
+        expiredDate: null,
+        urlFile: ''
     },
     file: null,
     error: true
@@ -57,19 +61,19 @@ describe('addDocument reducer', () => {
         expect(AddDocumentReducer(undefined, {})).toEqual(INITIAL_STATE);
     });
 
-    it('should handle UPDATE_FIELD_DOCUMENT', () => {
+    it('should handle UPDATE_FIELD_DOCUMENT_FOR_ADD', () => {
         expect(
             AddDocumentReducer(INITIAL_STATE, {
-                type: Types.UPDATE_FIELD_DOCUMENT,
+                type: Types.UPDATE_FIELD_DOCUMENT_FOR_ADD,
                 key: 'name',
                 value: 'Facture'
             })
         ).toEqual(STATE_CHANGE_FIELD_DOCUMENT);
     });
-    it('should handle UPDATE_FILE_DOCUMENT', () => {
+    it('should handle UPDATE_FILE_DOCUMENT_FOR_ADD', () => {
         expect(
             AddDocumentReducer(INITIAL_STATE, {
-                type: Types.UPDATE_FILE_DOCUMENT,
+                type: Types.UPDATE_FILE_DOCUMENT_FOR_ADD,
                 value: 'file'
             })
         ).toEqual(STATE_CHANGE_FILE_DOCUMENT);
