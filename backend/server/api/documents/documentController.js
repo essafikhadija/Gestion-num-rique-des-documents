@@ -20,6 +20,13 @@ export class DocumentController extends ParentController{
             .then(this.respondWithResult(res))
             .catch(this.handleError(res));
     }
+    find(req, res) {
+        this.service
+            .find(req.params.key)
+            .then(this.handleEntityNotFound(res))
+            .then(this.respondWithResult(res))
+            .catch(this.handleError(res));
+    }
 
     create(req, res) {
         let document;

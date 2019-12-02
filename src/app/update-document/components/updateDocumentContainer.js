@@ -5,6 +5,7 @@ import UpdateDocumentComponent from "./updateDocumentComponent";
 
 class UpdateDocumentContainer extends Component {
     render() {
+        debugger;
         return (
             <UpdateDocumentComponent
                 document={this.props.document}

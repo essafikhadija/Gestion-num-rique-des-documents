@@ -2,9 +2,9 @@ import Types from '../../ActionsTypesConstants';
 import Messages from '../../MessagesTexts';
 import {confirmAlert} from 'react-confirm-alert';
 import '../../../css/App.css';
-import axios from "axios";
+import {push} from "connected-react-router";
 
-function requestDocumentsData() {
+function requestSearchedDocuments(key) {
 
     return async (dispatch) => {
         dispatch({
@@ -12,15 +12,19 @@ function requestDocumentsData() {
         });
 
         try {
-            const api =  axios.create({
-                baseURL: "/api/v1/documents",
-                responseType: "json"
-            });
-            const result = await api.get('/').then(response => response.data);
+               const result = await fetch("/api/v1/documents/search/" + key,
+                {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'},
+                }
+            ).then(response => response.json());
             dispatch({
                 type: Types.RECEIVE_DOCUMENTS,
                 documents: result
-            });
+            })
+
+            //dispatch(push('/search/'+key));
+
         } catch (err) {
             dispatch({
                 type: Types.FETCH_DOCUMENTS_FAILURE,
@@ -64,8 +68,19 @@ function deleteDocument(id) {
         });
 
     };
+
+}
+function changeFieldSearchedDocument(key, value) {
+    return (dispatch) => {
+        dispatch({
+            type: Types.UPDATE_DOCUMENT_NAME_FOR_SEARCH,
+            key: key,
+            value: value
+        });
+    }
 }
 export default {
-    requestDocumentsData,
-    deleteDocument
+    requestSearchedDocuments,
+    deleteDocument,
+    changeFieldSearchedDocument
 }

@@ -24,6 +24,7 @@ export default express
     .get('/:id', (req, res) => controller.findById(req, res))
     .post('/', upload.any(), (req, res) => controller.create(req, res))
     .get('/', (req, res) => controller.all(req, res))
+    .get('/search/:key',(req, res) => controller.find(req, res))
     .put('/:id',upload.any(), (req, res) => controller.update(req, res))
     .patch('/:id', (req, res) => controller.patch(req, res))
     .delete('/:id', (req, res) => controller.destroy(req, res));

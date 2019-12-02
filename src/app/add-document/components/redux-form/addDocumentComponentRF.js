@@ -6,14 +6,13 @@ import Validators from "./addDocumentFiledsValidators";
 
 
 function AddDocumentComponentRF(props) {
-    const {pristine, valid} = props;
+    const {valid,pristine} = props;
 
     return (
 
         <form className="form" onSubmit={(ev) => {
             ev.preventDefault();
             props.postDocument(props.document, props.file);
-            console.log(props.file + props.document);
         }
         }>
             <Field type="text"
@@ -49,7 +48,7 @@ function AddDocumentComponentRF(props) {
                 className="form-control col-md-10"
                 id="description-document-input"/>
 
-                <div className="form-group row">
+                <div className="form-group row MuiTableCell-root">
                     <label className="label">Document</label>
                     <div className="input-group col-md-10 element-without-padding">
                         <div className="custom-file">
@@ -75,7 +74,6 @@ function AddDocumentComponentRF(props) {
                 label="Expired document"
                 onChange={(ev) => props.changeFieldDocument('expiredDocument', ev.target.checked)}
                 id="expired-document-input"
-                validate={[Validators.validateExpiredDocument]}
             />
 
             <Field
@@ -93,6 +91,7 @@ function AddDocumentComponentRF(props) {
 
             <Field
                 name="expiredDate"
+                disabled={!props.document.expiredDocument}
                 component={Renders.datePicker}
                 type="text"
                 label="Expired Date"
@@ -101,11 +100,11 @@ function AddDocumentComponentRF(props) {
                 onChange={(val) => props.changeFieldDocument('expiredDate', val)}
                 className="form-control col-md-10"
                 id="expired-date-document-input"
-                validate={[Validators.validateExpiredDate]}
+                validate={!props.document.expiredDocument?undefined:[Validators.validateExpiredDate]}
 
             />
 
-            <button type="submit" className="btn btn-primary" style={{float: "right", marginRight: 26}}
+            <button type="submit" className="btn btn-primary" style={{float: "right"}}
                     disabled={pristine || !valid}>Submit
             </button>
 

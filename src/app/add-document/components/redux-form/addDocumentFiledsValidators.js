@@ -6,13 +6,11 @@ const Length = (max,min) => value => value && (value.length > max || value.lengt
 const nameLength = Length(20,2);
 const categoryLength = Length(20,3);
 const validateDate = date => date && moment(date).isSameOrBefore(new Date()) ? undefined : 'The date should be before today';
-const validateExpiredDate = date => date && moment(date).isAfter(validateDate.date) ? undefined : 'The expired date should be after the date of adding this document';
-const validateExpiredDocument = (expiredDocument,expiredDate)=> expiredDocument?undefined:expiredDate.disabled;
-
+const validateExpiredDate = (date) => date && moment(date).isAfter(validateDate.date) ? undefined : 'The expired date should be after the date of adding this document';
 export default {
     required,
     nameLength,
     categoryLength,
     validateDate,
     validateExpiredDate,
-    validateExpiredDocument}
+    }

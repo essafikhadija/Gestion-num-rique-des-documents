@@ -2,34 +2,36 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 
 
-const renderField = ({input, label, classCss, type, meta: {touched, error}}) => (
+const renderField = ({input, label, classCss, valueField,checked,type, meta: {touched, error}}) => (
     <fieldset>
-        <div className="form-group row MuiTableCell-root">
+        <div className="form-group row">
             <label className="label">{label}</label>
-            <input {...input} placeholder={label} type={type} className={classCss + " col-md-10"}/>
+            <input {...input}  value={valueField} checked={checked} placeholder={label} type={type} className={classCss + " col-md-10"}/>
             {touched && ((error &&
                 <span className="spanError">{error}</span>))}
         </div>
     </fieldset>
 );
-const renderFieldTextarea = ({input, label, classCss, type, meta: {touched, error, warning}}) => (
+const renderFieldTextarea = ({input, label, valueField, classCss, type, meta: {touched, error, warning}}) => (
     <fieldset>
-        <div className="form-group row MuiTableCell-root">
+        <div className="form-group row">
             <label className="label">{label}</label>
-            <textarea {...input} placeholder={label} type={type} className={classCss + " col-md-10"}/>
+            <textarea {...input} value ={valueField} placeholder={label} type={type} className={classCss + " col-md-10"}/>
             {touched && ((error &&
                 <span className="spanError">{error}</span>) || (warning &&
                 <span>{warning}</span>))}
         </div>
     </fieldset>
 );
-const datePicker = ({input, label, className, selected,disabled, meta: {touched, error}}) => {
+const datePicker = ({input, label, className, selectedValue,disabled, meta: {touched, error}}) => {
+
     return (
         <fieldset>
-            <div className="form-group row MuiTableCell-root">
+            <div className="form-group row">
                 <label className="label">{label}</label>
                 <DatePicker {...input}
-                            selected={selected || new Date()}
+                            value = {selectedValue}
+                            selected={selectedValue}
                             placeholder={label}
                             disabled={disabled}
                             dateFormat="yyyy-MM-dd"
@@ -37,7 +39,10 @@ const datePicker = ({input, label, className, selected,disabled, meta: {touched,
                 />
                 {touched && error && <span style={{fontSize: 14, color: "red"}} className="error_field">{error}</span>}
             </div>
+
         </fieldset>
+
+
     )
 };
 

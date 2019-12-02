@@ -6,7 +6,7 @@ import SearchContainer from "./search/components/SearchContainer";
 import CategoriesContainer from "./categories/components/CategoriesContainer";
 import DetailContainer from "./detail/components/DetailContainer";
 import YearsContainer from "./years/components/YearsContainer";
-import HeaderComponent from "./headers/components/HeaderComponent";
+import HeaderContainer from "./headers/components/HeaderContainer";
 import AddDocumentContainerRF from "./add-document/components/redux-form/addDocumentContainerRF";
 import UpdateDocumentContainer from "./update-document/components/updateDocumentContainer"
 import {history} from "../store/store";
@@ -18,7 +18,7 @@ class App extends Component {
         return (
             <ConnectedRouter history={history}>
                 <div>
-                    <HeaderComponent/>
+                    <HeaderContainer/>
                     <div className="container-fluid text-center">
                         <div className="row content">
                             <div className="col-sm-8 text-left" id="container-app">

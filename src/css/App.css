@@ -175,7 +175,32 @@ margin-left: 150px;}
     text-decoration: none;
 }
 
+div.react-datepicker-popper{
+    z-index: 1000;
+}
+.glyphicon-download-alt {
+    color: #2780E3;
+}
+.spanError , .error-style::before {
+    display: inline;
+    content: "⚠ ";
+}
+.error-style {
+    font-size: 14px;
+    color: red;
+    margin-left: 168px;
+}
 
-/*html {
-    background: #f2f2f2;
-}*/
+.MuiTablePagination-toolbar {
+       padding-left: 220px !important;
+}
+form.form {
+    padding-top: 40px;
+}
+
+.MuiTableCell-root {
+    font-size: 0.875rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    letter-spacing: 0.01071em;
+    color: rgba(0, 0, 0, 0.87);
+}

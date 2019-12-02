@@ -4,6 +4,8 @@ import AddDocumentReducer from "../app/add-document/reducer/addDocumentReducer";
 import DetailReducer from "../app/detail/reducer/DetailReducer";
 import CategorieReducer from "../app/categories/reducer/CategorieReducer";
 import  UpdateDocumentReducer from "../app/update-document/reducer/updateDocumentReducer";
+import SearchReducer from "../app/search/reducer/SearchReducer";
+
 import  {reducer as reduxFormReducer} from "redux-form";
 
 import thunk from 'redux-thunk';
@@ -19,6 +21,7 @@ const reducers = combineReducers({
     CategorieReducer,
     DetailReducer,
     UpdateDocumentReducer,
+    SearchReducer,
     form: reduxFormReducer,
     router: connectRouter(history),
 });

@@ -11,6 +11,10 @@ export default class DocumentService {
         LOGGER.info(`${this.constructor.name}.byId(${id})`);
         return Document.findById(id).exec();
     }
+    find(key) {
+        const keyRegex = new RegExp(key, 'i')
+        return Document.find({name: keyRegex}).exec();
+    }
 
     create(document) {
         return Document.create(document);
